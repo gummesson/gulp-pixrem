@@ -16,7 +16,7 @@ npm install gulp-pixrem --save-dev
 var pixrem = require('gulp-pixrem');
 
 gulp.task('css', function() {
-  gulp.src('css/*.css')
+  gulp.src('css/style.css')
     .pipe(pixrem())
     .pipe(gulp.dest('public/css/'));
 });
