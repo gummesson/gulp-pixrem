@@ -1,7 +1,7 @@
 /* Modules */
 
 var assert = require('assert');
-var gutil = require('gulp-util');
+var gutil  = require('gulp-util');
 var pixrem = require('./index');
 
 /* Tests */
