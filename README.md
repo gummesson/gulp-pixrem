@@ -13,6 +13,7 @@ npm install gulp-pixrem --save-dev
 ## Example
 
 ~~~ javascript
+var gulp = require('gulp');
 var pixrem = require('gulp-pixrem');
 
 gulp.task('css', function() {
