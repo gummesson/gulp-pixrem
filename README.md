@@ -10,7 +10,7 @@ Issues with the output should be reported on the [Pixrem](https://github.com/rob
 npm install gulp-pixrem --save-dev
 ~~~
 
-## Example
+## Examples
 
 ~~~ javascript
 var gulp = require('gulp');
@@ -19,6 +19,18 @@ var pixrem = require('gulp-pixrem');
 gulp.task('css', function() {
   gulp.src('css/style.css')
     .pipe(pixrem())
+    .pipe(gulp.dest('public/css/'));
+});
+
+gulp.task('css', function() {
+  gulp.src('css/style.css')
+    .pipe(pixrem('10px'))
+    .pipe(gulp.dest('public/css/'));
+});
+
+gulp.task('css', function() {
+  gulp.src('css/style.css')
+    .pipe(pixrem({ replace: true }))
     .pipe(gulp.dest('public/css/'));
 });
 ~~~
