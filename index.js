@@ -19,7 +19,7 @@ module.exports = function(root, options) {
     }
 
     try {
-      file.contents = new Buffer(pixrem(file.contents.toString(), root, options));
+      file.contents = new Buffer(pixrem.process(file.contents.toString(), root, options));
     } catch (err) {
       this.emit('error', new gutil.PluginError('gulp-pixrem', err));
     }
