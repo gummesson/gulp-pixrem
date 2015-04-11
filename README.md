@@ -10,6 +10,10 @@ Issues with the output should be reported on the [Pixrem](https://github.com/rob
 npm install gulp-pixrem --save-dev
 ~~~
 
+## Usage
+
+For usage and options, refer to the official [Pixrem](https://github.com/robwierzbowski/node-pixrem#usage) repository.
+
 ## Examples
 
 ~~~ javascript
