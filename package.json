@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/gummesson/gulp-pixrem",
   "dependencies": {
-    "pixrem": "~1.1.1",
-    "through2": "~0.6.3",
-    "gulp-util": "~3.0.1"
+    "pixrem": "~1.2.3",
+    "through2": "~0.6.5",
+    "gulp-util": "~3.0.4"
   },
   "devDependencies": {
     "mocha": "*"
