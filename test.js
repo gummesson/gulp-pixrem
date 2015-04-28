@@ -45,7 +45,7 @@ describe('gulp-pixrem', function() {
     stream.write(fixture('code { font-size: 1rem; }'));
   });
 
-  it('should postprocess CSS using Pixrem with inline sourcemaps', function(done) {
+  it('should postprocess CSS using Pixrem with sourcemaps', function(done) {
     var stream = sourcemaps.init();
     var write  = sourcemaps.write();
 
