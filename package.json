@@ -24,11 +24,13 @@
   "homepage": "https://github.com/gummesson/gulp-pixrem",
   "dependencies": {
     "gulp-util": "~3.0.4",
+    "object-assign": "^2.0.0",
     "pixrem": "~1.2.4",
     "through2": "~0.6.5",
-    "gulp-util": "~3.0.4"
+    "vinyl-sourcemaps-apply": "^0.1.4"
   },
   "devDependencies": {
+    "gulp-sourcemaps": "^1.5.2",
     "mocha": "*"
   }
 }
