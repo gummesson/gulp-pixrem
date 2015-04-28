@@ -5,7 +5,7 @@ var gutil      = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var pixrem     = require('./');
 
-var sourceMapRegex = /sourceMappingURL=data:application\/json;base64/;
+var regex = /sourceMappingURL=data:application\/json;base64/;
 
 /* Tests */
 
