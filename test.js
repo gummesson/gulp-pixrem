@@ -5,7 +5,20 @@ var gutil      = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var pixrem     = require('./');
 
+/* Helpers */
+
 var regex = /sourceMappingURL=data:application\/json;base64/;
+
+function fixture(content) {
+  var file = new gutil.File({
+    contents: new Buffer(content),
+    cwd: __dirname,
+    base: __dirname,
+    path: __dirname + '/fixture.css'
+  });
+
+  return file;
+}
 
 /* Tests */
 
@@ -18,12 +31,7 @@ describe('gulp-pixrem', function() {
       done();
     });
 
-    stream.write(new gutil.File({
-      contents: new Buffer('code { font-size: 0.875rem; }'),
-      cwd: __dirname,
-      base: __dirname,
-      path: __dirname + '/fixture.css'
-    }));
+    stream.write(fixture('code { font-size: 0.875rem; }'));
   });
 
   it('should postprocess CSS using Pixrem with a custom pixel root value', function(done) {
@@ -34,12 +42,7 @@ describe('gulp-pixrem', function() {
       done();
     });
 
-    stream.write(new gutil.File({
-      contents: new Buffer('code { font-size: 1rem; }'),
-      cwd: __dirname,
-      base: __dirname,
-      path: __dirname + '/fixture.css'
-    }));
+    stream.write(fixture('code { font-size: 1rem; }'));
   });
 
   it('should postprocess CSS using Pixrem with inline sourcemaps', function(done) {
@@ -50,15 +53,10 @@ describe('gulp-pixrem', function() {
 
     write.on('data', function(data) {
       var results = data.contents.toString();
-      assert.ok(sourceMapRegex.test(results));
+      assert.ok(regex.test(results));
       done();
     });
 
-    stream.write(new gutil.File({
-      contents: new Buffer('code { font-size: 1rem; }'),
-      cwd: __dirname,
-      base: __dirname,
-      path: __dirname + '/fixture.css'
-    }));
+    stream.write(fixture('code { font-size: 1rem; }'));
   });
 });
