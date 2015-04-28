@@ -11,15 +11,17 @@ var pixrem         = require('pixrem');
 module.exports = function(root, options) {
   options = options || {};
 
-  return through.obj(function(file, enc, cb) {
+  var stream = through.obj(transform);
+
+  function transform(file, encoding, done) {
     if (file.isNull()) {
       this.push(file);
-      return cb();
+      return done();
     }
 
     if (file.isStream()) {
       this.emit('error', new gutil.PluginError('gulp-pixrem', 'Streaming not supported'));
-      return cb();
+      return done();
     }
 
     try {
@@ -43,6 +45,8 @@ module.exports = function(root, options) {
     }
 
     this.push(file);
-    cb();
-  });
+    done();
+  }
+
+  return stream;
 };
