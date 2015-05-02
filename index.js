@@ -25,14 +25,14 @@ module.exports = function(root, options) {
     }
 
     try {
-      var settings = assign(options, {
+      var settings = assign({
         map: file.sourceMap ? { annotation: false } : false,
         from: file.relative,
         to: file.relative,
         replace: false,
         atrules: false,
         html: true
-      });
+      }, options);
 
       var results = pixrem.process(file.contents.toString(), root, settings);
 
