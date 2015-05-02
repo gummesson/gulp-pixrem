@@ -34,7 +34,7 @@ gulp.task('css', function() {
 
 gulp.task('css', function() {
   gulp.src('css/style.css')
-    .pipe(pixrem({ replace: true }))
+    .pipe(pixrem('100%', { replace: true }))
     .pipe(gulp.dest('public/css/'));
 });
 ~~~
