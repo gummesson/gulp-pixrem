@@ -1,6 +1,6 @@
 {
   "name": "gulp-pixrem",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Pixrem plugin for gulp.",
   "main": "index.js",
   "scripts": {
