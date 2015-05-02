@@ -28,7 +28,10 @@ module.exports = function(root, options) {
       var settings = assign(options, {
         map: file.sourceMap ? { annotation: false } : false,
         from: file.relative,
-        to: file.relative
+        to: file.relative,
+        replace: false,
+        atrules: false,
+        html: true
       });
 
       var results = pixrem.process(file.contents.toString(), root, settings);
