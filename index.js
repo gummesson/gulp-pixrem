@@ -4,11 +4,12 @@ var gutil          = require('gulp-util');
 var assign         = require('object-assign');
 var applySourceMap = require('vinyl-sourcemaps-apply');
 var through        = require('through2');
+var postcss        = require('postcss');
 var pixrem         = require('pixrem');
 
 /* Exports */
 
-module.exports = function(root, options) {
+module.exports = function(options) {
   options = options || {};
 
   var stream = through.obj(transform);
@@ -28,13 +29,10 @@ module.exports = function(root, options) {
       var settings = assign({
         map: file.sourceMap ? { annotation: false } : false,
         from: file.relative,
-        to: file.relative,
-        replace: false,
-        atrules: false,
-        html: true
+        to: file.relative
       }, options);
 
-      var results = pixrem.process(file.contents.toString(), root, settings);
+      var results = postcss([pixrem(settings)]).process(file.contents.toString()).css;
 
       if (results.map && file.sourceMap) {
         applySourceMap(file, results.map.toString());

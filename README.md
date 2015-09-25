@@ -28,13 +28,16 @@ gulp.task('css', function() {
 
 gulp.task('css', function() {
   gulp.src('css/style.css')
-    .pipe(pixrem('10px'))
+    .pipe(pixrem({ rootValue: '10px' }))
     .pipe(gulp.dest('public/css/'));
 });
 
 gulp.task('css', function() {
   gulp.src('css/style.css')
-    .pipe(pixrem('100%', { replace: true }))
+    .pipe(pixrem({
+      rootValue: '100%',
+      replace: true
+    }))
     .pipe(gulp.dest('public/css/'));
 });
 ~~~

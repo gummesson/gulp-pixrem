@@ -35,7 +35,7 @@ describe('gulp-pixrem', function() {
   });
 
   it('should postprocess CSS using Pixrem with a custom pixel root value', function(done) {
-    var stream = pixrem('10px');
+    var stream = pixrem({ rootValue: '10px' });
 
     stream.on('data', function(data) {
       assert.equal(data.contents.toString(), 'code { font-size: 10px; font-size: 1rem; }');
@@ -44,9 +44,9 @@ describe('gulp-pixrem', function() {
 
     stream.write(fixture('code { font-size: 1rem; }'));
   });
-  
+
   it('should postprocess CSS using Pixrem with a custom pixel root value set in the html tag', function(done) {
-    var stream = pixrem('100%', { replace: true });
+    var stream = pixrem({ rootValue: '100%', replace: true });
 
     stream.on('data', function(data) {
       assert.equal(data.contents.toString(), 'html { font-size: 12px; } code { font-size: 12px; }');
